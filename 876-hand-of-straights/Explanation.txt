@@ -1,0 +1,26 @@
+Explanation:
+The solution provided uses a hash map to keep track of the frequency of 
+each card number and iteratively checks if it's possible to form groups of 
+groupSize consecutive numbers.
+
+Check Initial Conditions: First, it checks if the total number of cards n is divisible by 
+                        groupSize. If not, it immediately returns false because it's impossible 
+                        to form groups of groupSize consecutive numbers with a non-divisible count.
+
+Count Frequencies: It counts the frequency of each card number using a hash map mp. Each key in 
+                    the map represents a card number, and its value represents how many times
+                    that card appears in the hand.
+Form Groups: The algorithm then tries to form groups of groupSize consecutive numbers. It starts 
+                    with the smallest card number and attempts to decrement the frequencies of 
+                    groupSize consecutive numbers starting from the current card number.
+
+Validation: For each attempt to form a group, it checks if the next card number in the sequence
+            exists in the hand (i.e., its frequency is greater than 0). If not, it means it's impossible 
+            to continue forming the group, and the function returns false.
+Update Frequencies: If a group can be formed, it decrements the frequency of each card number involved 
+                    in the group. If a card number's frequency reaches 0, it removes that card number 
+                    from the hash map.
+Completion Check: The loop continues until either all cards are arranged into groups or it's determined
+                that it's impossible to form further groups. If the entire hand is processed without 
+                returning false, it means all cards can be rearranged into groups of groupSize 
+                consecutive numbers, and the function returns true.
