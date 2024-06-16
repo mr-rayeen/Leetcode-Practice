@@ -1,6 +1,9 @@
 class Solution {
 public:
     int minPatches(vector<int>& nums, int n) {
+        
+        //    This Ques is same as 2952. Minimum Number of Coins to be Added
+        
         int patch = 0; // Counter for the number of patches added
         int i = 0; // Index to iterate through the array
         long long int maxReach = 0; // Maximum reach of the current sequence of numbers
