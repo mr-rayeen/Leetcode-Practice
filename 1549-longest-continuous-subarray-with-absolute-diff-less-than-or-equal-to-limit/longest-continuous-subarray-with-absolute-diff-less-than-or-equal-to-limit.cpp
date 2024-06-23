@@ -46,25 +46,25 @@ public:
 // class Solution {
 // public:
 //     int longestSubarray(vector<int>& nums, int limit) {
-//         int n = nums.size();
+//         int n = nums.size(); // Size of the input array
 
-//         multiset<int> st;
-//         int i = 0;
-//         int j = 0;
-//         int maxLength = 0;
+//         multiset<int> st; // Multiset to store elements
+//         int i = 0; // Start index of the sliding window
+//         int j = 0; // End index of the sliding window
+//         int maxLength = 0; // Length of the longest valid subarray
 
-//         while (j < n) {
-//             st.insert(nums[j]);
+//         while (j < n) { // Slide the window
+//             st.insert(nums[j]); // Insert the current element into the multiset
 
-//             while (*st.rbegin() - *st.begin() > limit) {
-//                 st.erase(st.find(nums[i]));
-//                 ++i;
+//             while (*st.rbegin() - *st.begin() > limit) { // While the difference between the maximum and minimum elements exceeds the limit
+//                 st.erase(st.find(nums[i])); // Remove the element at the start of the window from the multiset
+//                 ++i; // Adjust the start index of the window
 //             }
 
-//             maxLength = max(maxLength, j - i + 1);
-//             j++;
+//             maxLength = max(maxLength, j - i + 1); // Update maxLength with the length of the current valid window
+//             j++; // Slide the window forward
 //         }
 
-//         return maxLength;
+//         return maxLength; // Return the length of the longest valid subarray
 //     }
 // };
